@@ -132,10 +132,23 @@ app.use('/api/auth', authRoutes);
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/admin', adminRoutes);
 
+// Also mount on /_/backend/api for Vercel experimentalServices routing
+app.use('/_/backend/api/auth', authRoutes);
+app.use('/_/backend/api/complaints', complaintRoutes);
+app.use('/_/backend/api/admin', adminRoutes);
+
 app.get('/', (req, res) => {
   res.send('Waste Management API is running (MongoDB Connected)');
 });
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.get('/_/backend', (req, res) => {
+  res.send('Waste Management API is running (MongoDB Connected)');
 });
+
+// Only listen if not running on Vercel Serverless (which sets default env vars)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+export default app;
