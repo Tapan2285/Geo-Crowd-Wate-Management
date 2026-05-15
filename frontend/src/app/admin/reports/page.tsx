@@ -15,7 +15,7 @@ export default function AdminReports() {
 
   const fetchMunicipalities = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/users');
+      const res = await fetch('/api/auth/users');
       if (res.ok) {
         const users = await res.json();
         setMunicipalities(users.filter((u: any) => u.role === 'municipality'));
@@ -27,7 +27,7 @@ export default function AdminReports() {
 
   const fetchComplaints = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/complaints');
+      const res = await fetch('/api/complaints');
       if (res.ok) {
         const data = await res.json();
         setComplaints(data);
@@ -45,7 +45,7 @@ export default function AdminReports() {
   const saveReassign = async (id: string) => {
     if (!newMuniId.trim()) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/complaints/${id}`, {
+      const res = await fetch(`/api/complaints/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ assignedMunicipalityId: newMuniId.trim() })
@@ -66,7 +66,7 @@ export default function AdminReports() {
 
   const deleteComplaint = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/complaints/${id}`, {
+      const res = await fetch(`/api/complaints/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {

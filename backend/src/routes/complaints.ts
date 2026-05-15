@@ -68,7 +68,8 @@ router.post('/', async (req, res) => {
         formData.append('file', new Blob(['dummy'], { type: 'image/jpeg' }), 'dummy.jpg');
     }
 
-    const aiResponse = await fetch('http://localhost:8000/detect', {
+    const aiServiceUrl = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+    const aiResponse = await fetch(`${aiServiceUrl}/detect`, {
       method: 'POST',
       body: formData
     });

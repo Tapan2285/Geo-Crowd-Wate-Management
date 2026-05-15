@@ -14,7 +14,7 @@ export default function AdminDashboard() {
 
   const fetchComplaints = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/complaints');
+      const res = await fetch('/api/complaints');
       if (res.ok) {
         const data = await res.json();
         setComplaints(data);
@@ -26,7 +26,7 @@ export default function AdminDashboard() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/users');
+      const res = await fetch('/api/auth/users');
       if (res.ok) {
         const data = await res.json();
         setUsers(data);

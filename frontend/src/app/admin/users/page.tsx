@@ -11,7 +11,7 @@ export default function AdminUsers() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/users');
+      const res = await fetch('/api/auth/users');
       if (res.ok) {
         const data = await res.json();
         setUsers(data);

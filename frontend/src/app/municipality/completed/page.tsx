@@ -16,7 +16,7 @@ export default function CompletedTasks() {
 
   const fetchComplaints = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/complaints');
+      const res = await fetch('/api/complaints');
       if (res.ok) {
         const data = await res.json();
         setComplaints(data);

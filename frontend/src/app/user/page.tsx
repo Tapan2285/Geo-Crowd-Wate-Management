@@ -28,7 +28,7 @@ export default function UserDashboard() {
     try {
       const userStr = localStorage.getItem('user');
       const userId = userStr ? JSON.parse(userStr).id : 'u1';
-      const res = await fetch(`http://localhost:5001/api/complaints?userId=${userId}`);
+      const res = await fetch(`/api/complaints?userId=${userId}`);
       if (res.ok) {
         const data = await res.json();
         setComplaints(data);
@@ -141,7 +141,7 @@ export default function UserDashboard() {
     const userStr = localStorage.getItem('user');
     const userId = userStr ? JSON.parse(userStr).id : 'u1';
     try {
-      const res = await fetch('http://localhost:5001/api/complaints', {
+      const res = await fetch('/api/complaints', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -174,7 +174,7 @@ export default function UserDashboard() {
   const submitFeedback = async (id: string) => {
     if (!feedbackText.trim()) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/complaints/${id}`, {
+      const res = await fetch(`/api/complaints/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ feedback: feedbackText })

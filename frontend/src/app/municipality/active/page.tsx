@@ -17,7 +17,7 @@ export default function ActiveTasks() {
 
   const fetchComplaints = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/complaints');
+      const res = await fetch('/api/complaints');
       if (res.ok) {
         const data = await res.json();
         setComplaints(data);
@@ -30,7 +30,7 @@ export default function ActiveTasks() {
   const markAsCleaned = async (id: string) => {
     const feedback = feedbackMap[id] || '';
     try {
-      const res = await fetch(`http://localhost:5001/api/complaints/${id}`, {
+      const res = await fetch(`/api/complaints/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'Cleaned', feedback })

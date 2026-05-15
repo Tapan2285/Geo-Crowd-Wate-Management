@@ -26,7 +26,7 @@ export default function Home() {
     setError('');
     setLoading(true);
 
-    const endpoint = isLogin ? 'http://localhost:5001/api/auth/login' : 'http://localhost:5001/api/auth/register';
+    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
     const bodyPayload = isLogin ? { email, password } : { name, email, password, role, municipalityCode: role === 'municipality' ? municipalityCode : undefined };
 
     try {

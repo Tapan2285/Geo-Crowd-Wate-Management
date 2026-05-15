@@ -13,7 +13,7 @@ export default function AdminCodes() {
 
   const fetchCodes = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/admin/codes');
+      const res = await fetch('/api/admin/codes');
       if (res.ok) {
         const data = await res.json();
         setCodes(data);
@@ -30,7 +30,7 @@ export default function AdminCodes() {
     }
     setLoadingCode(true);
     try {
-      const res = await fetch('http://localhost:5001/api/admin/codes', {
+      const res = await fetch('/api/admin/codes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ designatedTo: newDesignatedTo })
