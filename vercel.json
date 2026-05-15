@@ -1,31 +1,13 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "backend/src/index.ts",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "ai-service/main.py",
-      "use": "@vercel/python"
+    "experimentalServices": {
+        "frontend": {
+            "entrypoint": "frontend",
+            "routePrefix": "/",
+            "framework": "nextjs"
+        },
+        "backend": {
+            "entrypoint": "backend",
+            "routePrefix": "/_/backend"
+        }
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/ai/(.*)",
-      "dest": "/ai-service/main.py"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/src/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/$1"
-    }
-  ]
 }
