@@ -36,7 +36,7 @@ export default function CompletedTasks() {
       <div id="completed-tasks" style={{ marginBottom: '4rem' }}>
         <h3 className="card-title">✨ Completed Tasks</h3>
         {completedTasks.length === 0 ? (
-          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>You haven't completed any tasks yet.</p>
+          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>You haven&apos;t completed any tasks yet.</p>
         ) : (
           <div className="grid-3">
             {completedTasks.map(c => (

@@ -48,7 +48,7 @@ export default function UserReports() {
       <div id="my-reports" style={{ marginBottom: '4rem' }}>
         <h3 className="card-title">My Reports History</h3>
         {complaints.length === 0 ? (
-          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>You haven't reported any waste yet.</p>
+          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>You haven&apos;t reported any waste yet.</p>
         ) : (
           <div className="grid-3">
             {complaints.map(c => (
@@ -103,7 +103,7 @@ export default function UserReports() {
                 {c.feedback && (
                   <div style={{ padding: '0.75rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '8px', border: '1px solid rgba(16, 185, 129, 0.2)', marginTop: '1rem' }}>
                     <div style={{ fontSize: '1rem', color: '#fbbf24', marginBottom: '0.25rem' }}>★★★★★</div>
-                    <p style={{ fontStyle: 'italic', margin: 0, color: 'var(--success)', fontSize: '0.9rem' }}>"{c.feedback}"</p>
+                    <p style={{ fontStyle: 'italic', margin: 0, color: 'var(--success)', fontSize: '0.9rem' }}>&quot;{c.feedback}&quot;</p>
                   </div>
                 )}
               </div>
